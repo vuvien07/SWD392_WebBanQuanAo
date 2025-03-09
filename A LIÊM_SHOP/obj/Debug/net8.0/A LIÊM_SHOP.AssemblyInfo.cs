@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("A LIÊM_SHOP")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3b4b1ca15acbcca473f82296164e369394b9401b")]
 [assembly: System.Reflection.AssemblyProductAttribute("A LIÊM_SHOP")]
 [assembly: System.Reflection.AssemblyTitleAttribute("A LIÊM_SHOP")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

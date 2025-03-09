@@ -18,22 +18,31 @@ namespace A_LIÊM_SHOP.Controllers
 			_orderService = orderService;
 			_ghnService = ghnService;
 		}
-		public IActionResult Index()
+		[HttpGet]
+		[Route("index")]
+		public async Task<IActionResult> GetAllOrder()
 		{
-			User u = HttpContext.Session.GetObjectFromSession<User>("user");
-			var orders = _orderService.GetByUserId(u.Id);
-			return View(orders);
+			
+			List<OrderGHNViewModel> orders = await _ghnService.GetAllOrders();
+			ViewBag.Orders = orders;
+			return View("~/Views/Order/Index.cshtml");
 		}
 		[HttpGet]
-		[Route("detail")]
 		public async Task<IActionResult> Detail([FromQuery] string orderCode)
 		{
 			var order = await _ghnService.GetOrderDetailByOrderCode(orderCode);
-			OrderViewModel orderViewModel = OrderMapper.MapToOrderViewModel(order);
-			ViewBag.Order = orderViewModel;
+			ViewBag.Order = order;
 			return View("~/Views/Order/Detail.cshtml");
 		}
 
+       
+        [HttpPost]
+        public async Task<IActionResult> CancelOrder(string orderCode)
+        {
+            await _ghnService.CancelOrderById(orderCode);
+            return RedirectToAction("GetAllOrder");
+        }
 
-	}
+
+    }
 }

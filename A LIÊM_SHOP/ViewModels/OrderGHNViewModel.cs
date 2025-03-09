@@ -2,6 +2,7 @@
 {
 	public class OrderGHNViewModel
 	{
+		public string OrderCode { get; set; } = null!;
 		public int ShopId { get; set; }
 		public string ToName { get; set; } = null!;
 		public string ToPhone { get; set; } = null!;
@@ -25,6 +26,9 @@
 		public string Status { get; set; } = null!;
 
 		public Decimal CodAmount { get; set; }
+
+		public List<ProductGHNViewModel> ProductGHNs { get; set; } = new List<ProductGHNViewModel>();
+		public string Note { get; set; } = null!;
 
 	}
 }
